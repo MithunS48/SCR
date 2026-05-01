@@ -37,7 +37,7 @@ class WasteReportServiceTest {
         user = User.builder().id(1L).email("u@test.com").displayName("User")
                 .role(User.Role.USER).points(0).build();
         ReflectionTestUtils.setField(reportService, "uploadDir", System.getProperty("java.io.tmpdir"));
-        ReflectionTestUtils.setField(reportService, "baseUrl", "http://localhost:8080/api");
+        ReflectionTestUtils.setField(reportService, "baseUrl", "http://plastic-watch-backend.onrender.com/api");
     }
 
     // ---- Submission ----

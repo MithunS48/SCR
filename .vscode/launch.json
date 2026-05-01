@@ -13,7 +13,7 @@
         "DB_PASSWORD": "plasticwatch123",
         "JWT_SECRET": "PlasticWatchSuperSecretKeyForJWTSigningMustBe256BitsLong!",
         "UPLOAD_DIR": "./uploads",
-        "BASE_URL": "http://localhost:8080/api"
+        "BASE_URL": "http://plastic-watch-backend.onrender.com/api"
       }
     },
     {

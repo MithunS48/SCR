@@ -22,4 +22,4 @@ jwt:
 
 storage:
   upload-dir: ./test-uploads
-  base-url: http://localhost:8080/api
+  base-url: http://plastic-watch-backend.onrender.com/api

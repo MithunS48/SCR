@@ -5,7 +5,7 @@ class ApiConstants {
   static String get baseUrl {
     const prodUrl = String.fromEnvironment('API_BASE_URL', defaultValue: '');
     if (prodUrl.isNotEmpty) return prodUrl;
-    if (kIsWeb) return 'http://localhost:8080/api';
+    if (kIsWeb) return 'http://plastic-watch-backend.onrender.com/api';
     return 'http://10.0.2.2:8080/api';
   }
 

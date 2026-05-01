@@ -36,7 +36,7 @@ services:
       DB_PASSWORD: plasticwatch123
       JWT_SECRET: PlasticWatchSuperSecretKeyForJWTSigningMustBe256BitsLong!
       UPLOAD_DIR: /app/uploads
-      BASE_URL: http://localhost:8080/api
+      BASE_URL: http://plastic-watch-backend.onrender.com/api
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/plastic_watch?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     ports:
       - "8080:8080"
