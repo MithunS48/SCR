@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "▶ Run Backend (Spring Boot)",
+      "request": "launch",
+      "mainClass": "com.plasticwatch.PlasticWatchApplication",
+      "projectName": "plastic-watch-backend",
+      "cwd": "${workspaceFolder}/backend",
+      "env": {
+        "DB_USERNAME": "plasticwatch",
+        "DB_PASSWORD": "plasticwatch123",
+        "JWT_SECRET": "PlasticWatchSuperSecretKeyForJWTSigningMustBe256BitsLong!",
+        "UPLOAD_DIR": "./uploads",
+        "BASE_URL": "http://localhost:8080/api"
+      }
+    },
+    {
+      "name": "▶ Run Flutter App",
+      "request": "launch",
+      "type": "dart",
+      "program": "frontend/lib/main.dart",
+      "cwd": "${workspaceFolder}/frontend"
+    },
+    {
+      "type": "java",
+      "name": "▶ Run Backend Tests",
+      "request": "launch",
+      "mainClass": "",
+      "projectName": "plastic-watch-backend",
+      "cwd": "${workspaceFolder}/backend"
+    }
+  ]
+}

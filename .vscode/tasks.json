@@ -1,0 +1,76 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Backend: Maven Build",
+            "type": "shell",
+            "command": "mvn clean install -DskipTests",
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": "$java"
+        },
+        {
+            "label": "Backend: Run Tests",
+            "type": "shell",
+            "command": "mvn test",
+            "options": {
+                "cwd": "${workspaceFolder}/backend",
+                "env": {
+                    "DB_USERNAME": "plasticwatch",
+                    "DB_PASSWORD": "plasticwatch123",
+                    "JWT_SECRET": "PlasticWatchSuperSecretKeyForJWTSigningMustBe256BitsLong!"
+                }
+            },
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Flutter: Get Packages",
+            "type": "shell",
+            "command": "flutter pub get",
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Flutter: Run on Emulator",
+            "type": "shell",
+            "command": "flutter run",
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Flutter: Build APK",
+            "type": "shell",
+            "command": "flutter build apk --release",
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+# Place your plastic_detection.tflite model file here.
+# Download a compatible MobileNet model from:
+# https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/classification/5
+# The model should output [plastic_score, non_plastic_score]

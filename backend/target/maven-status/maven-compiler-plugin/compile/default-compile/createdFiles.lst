@@ -1,0 +1,4 @@
+com\plasticwatch\dto\usage\UsageLogRequest.class
+com\plasticwatch\service\WasteReportService$1.class
+com\plasticwatch\dto\gamification\BadgeDto.class
+com\plasticwatch\dto\gamification\BadgeDto$BadgeDtoBuilder.class

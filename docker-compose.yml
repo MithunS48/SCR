@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # MySQL database
+  mysql:
+    image: mysql:8.0
+    container_name: plasticwatch-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: plastic_watch
+      MYSQL_USER: plasticwatch
+      MYSQL_PASSWORD: plasticwatch123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Spring Boot backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: plasticwatch-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_USERNAME: plasticwatch
+      DB_PASSWORD: plasticwatch123
+      JWT_SECRET: PlasticWatchSuperSecretKeyForJWTSigningMustBe256BitsLong!
+      UPLOAD_DIR: /app/uploads
+      BASE_URL: http://localhost:8080/api
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/plastic_watch?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads:/app/uploads
+
+volumes:
+  mysql_data:
+  uploads:

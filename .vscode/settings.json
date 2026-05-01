@@ -1,0 +1,26 @@
+{
+  // Java — point to the backend source
+  "java.project.sourcePaths": ["backend/src/main/java", "backend/src/test/java"],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "spring-boot.ls.java.home": "",
+
+  // Flutter — point to the frontend
+  "dart.flutterSdkPath": "",
+  "dart.projectSearchDepth": 3,
+
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "[dart]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+
+  // Terminal
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  // File associations
+  "files.associations": {
+    "*.yml": "yaml"
+  }
+}
