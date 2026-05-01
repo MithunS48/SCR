@@ -1,13 +1,19 @@
-# Multi-stage build for Spring Boot backend
-FROM eclipse-temurin:17-jdk-alpine AS builder
+# Stage 1: Build with Maven
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS builder
 WORKDIR /app
+# Copy pom.xml first for dependency caching
 COPY pom.xml .
+RUN mvn dependency:go-offline -q
+# Copy source and build
 COPY src ./src
-RUN apk add --no-cache maven && mvn clean package -DskipTests -q
+RUN mvn clean package -DskipTests -q
 
-FROM eclipse-temurin:17-jre-alpine
+# Stage 2: Run with slim JRE
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
+RUN mkdir -p /tmp/uploads
 COPY --from=builder /app/target/*.jar app.jar
-RUN mkdir -p /app/uploads
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", \
+  "-Djava.security.egd=file:/dev/./urandom", \
+  "-jar", "app.jar"]
